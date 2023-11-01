@@ -122,160 +122,162 @@ function App() {
   
  
   return (
-    <div className="">
-      <form action="" className=''>
-        <div className="flex gap-6 justify-center items-start h-[250px]">
-          <div className="flex flex-col justify-start gap-4 h-full">
-            <label className="text-left">Nombre:</label>
-            <input
-              type="text"
-              name="person"
-              id="person"
-              onChange={(e) =>
-                setFormData({ ...formData, person: e.target.value })
-              }
-              value={formData.person}
-              className="h-10 w-50 p-4"
-              placeholder="Facundo, Juan, ..."
-              required
-            />
+    <div className="p-4">
+      <form action="" className='mb-8 sm:mb-0'>
+        <div className='flex gap-4'>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-start h-[310px] sm:h-[250px]">
+            <div className="flex flex-col justify-start gap-4 h-full">
+              <label className="text-left">Nombre:</label>
+              <input
+                type="text"
+                name="person"
+                id="person"
+                onChange={(e) =>
+                  setFormData({ ...formData, person: e.target.value })
+                }
+                value={formData.person}
+                className="h-10 w-50 p-4"
+                placeholder="Facundo, Juan, ..."
+                required
+              />
+            </div>
+
+            <div className="flex flex-col justify-start h-full">
+              <h3 className="mb-4 font-semibold text-gray-900 dark:text-white text-left">
+                Participación:
+              </h3>
+              <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg  dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                <li className="w-full border-b flex justify-between border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                  <div className="flex items-center justify-between pl-3">
+                    <input
+                      id="comida-checkbox-list"
+                      type="checkbox"
+                      checked={formData.comidaTake}
+                      value={formData.comidaTake}
+                      onChange={() =>
+                        setFormData({
+                          ...formData,
+                          comidaTake: !formData.comidaTake,
+                        })
+                      }
+                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                    />
+                    <label
+                      htmlFor="comida-checkbox-list"
+                      className="w-full py-3 ml-2 text-sm text-left font-medium text-gray-900 dark:text-gray-300"
+                    >
+                      Comida
+                    </label>
+                  </div>
+                  
+                    <input
+                      type="number"
+                      value={formData.amountComida}
+                      name="comidaMoney"
+                      id=""
+                      className="h-8 w-20 m-2"
+                      onChange={(e) =>
+                        setFormData({ ...formData, amountComida: e.target.value })
+                      }
+                    />
+                  
+                </li>
+
+                <li className="w-full border-b flex justify-between border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                  <div className="flex items-center justify-between pl-3">
+                    <input
+                      id="bebida-checkbox-list"
+                      type="checkbox"
+                      checked={formData.bebidaTake}
+                      value={formData.bebidaTake}
+                      onChange={() =>
+                        setFormData({
+                          ...formData,
+                          bebidaTake: !formData.bebidaTake,
+                        })
+                      }
+                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                    />
+                    <label
+                      htmlFor="bebida-checkbox-list"
+                      className="w-full py-3 ml-2 text-sm font-medium text-left text-gray-900 dark:text-gray-300"
+                    >
+                      Bebida
+                    </label>
+                  </div>
+                  
+                    <input
+                      type="number"
+                      value={formData.amountBebida}
+                      name="comidaMoney"
+                      id=""
+                      className="h-8 w-20 m-2"
+                      onChange={(e) =>
+                        setFormData({ ...formData, amountBebida: e.target.value })
+                      }
+                    />
+                  
+                </li>
+
+                <li className="w-full border-b flex justify-between border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                  <div className="flex items-center pl-3">
+                    <input
+                      id="alcohol-checkbox-list"
+                      type="checkbox"
+                      checked={formData.alcohol}
+                      onChange={(e) => setFormData({ ...formData, alcohol: e.target.checked })}
+                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                    />
+                    <label
+                      htmlFor="alcohol-checkbox-list"
+                      className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >
+                      Alcohol
+                    </label>
+                  </div>
+                  
+                    <input
+                      type="number"
+                      value={formData.amountAlcohol}
+                      name="alcoholMoney"
+                      className="h-8 w-20 m-2"
+                      onChange={(e) => setFormData({ ...formData, amountAlcohol: e.target.value })}
+                    />
+                  
+                </li>
+
+                <li className="w-full border-b flex justify-between border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                  <div className="flex items-center pl-3">
+                    <input
+                      id="other-checkbox-list"
+                      type="checkbox"
+                      checked={formData.other}
+                      onChange={(e) => setFormData({ ...formData, other: e.target.checked })}
+                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                    />
+                    <label
+                      htmlFor="other-checkbox-list"
+                      className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    >
+                      Otros
+                    </label>
+                  </div>
+                  
+                    <input
+                      type="number"
+                      value={formData.amountOther}
+                      name="otherMoney"
+                      className="h-8 w-20 m-2"
+                      onChange={(e) => setFormData({ ...formData, amountOther: e.target.value })}
+                    />
+                  
+                </li>
+                              
+              
+              </ul>
+            </div>
           </div>
-
-          <div className="flex flex-col justify-start h-full">
-            <h3 className="mb-4 font-semibold text-gray-900 dark:text-white text-left">
-              Participación:
-            </h3>
-            <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg  dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-              <li className="w-full border-b flex justify-between border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                <div className="flex items-center pl-3">
-                  <input
-                    id="comida-checkbox-list"
-                    type="checkbox"
-                    checked={formData.comidaTake}
-                    value={formData.comidaTake}
-                    onChange={() =>
-                      setFormData({
-                        ...formData,
-                        comidaTake: !formData.comidaTake,
-                      })
-                    }
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                  />
-                  <label
-                    htmlFor="comida-checkbox-list"
-                    className="w-full py-3 ml-2 text-sm text-left font-medium text-gray-900 dark:text-gray-300"
-                  >
-                    Comida
-                  </label>
-                </div>
-                
-                  <input
-                    type="number"
-                    value={formData.amountComida}
-                    name="comidaMoney"
-                    id=""
-                    className="h-8 w-20 m-2"
-                    onChange={(e) =>
-                      setFormData({ ...formData, amountComida: e.target.value })
-                    }
-                  />
-                
-              </li>
-
-              <li className="w-full border-b flex justify-between border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                <div className="flex items-center pl-3">
-                  <input
-                    id="bebida-checkbox-list"
-                    type="checkbox"
-                    checked={formData.bebidaTake}
-                    value={formData.bebidaTake}
-                    onChange={() =>
-                      setFormData({
-                        ...formData,
-                        bebidaTake: !formData.bebidaTake,
-                      })
-                    }
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                  />
-                  <label
-                    htmlFor="bebida-checkbox-list"
-                    className="w-full py-3 ml-2 text-sm font-medium text-left text-gray-900 dark:text-gray-300"
-                  >
-                    Bebida
-                  </label>
-                </div>
-                
-                  <input
-                    type="number"
-                    value={formData.amountBebida}
-                    name="comidaMoney"
-                    id=""
-                    className="h-8 w-20 m-2"
-                    onChange={(e) =>
-                      setFormData({ ...formData, amountBebida: e.target.value })
-                    }
-                  />
-                
-              </li>
-
-              <li className="w-full border-b flex justify-between border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                <div className="flex items-center pl-3">
-                  <input
-                    id="alcohol-checkbox-list"
-                    type="checkbox"
-                    checked={formData.alcohol}
-                    onChange={(e) => setFormData({ ...formData, alcohol: e.target.checked })}
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                  />
-                  <label
-                    htmlFor="alcohol-checkbox-list"
-                    className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                  >
-                    Alcohol
-                  </label>
-                </div>
-                
-                  <input
-                    type="number"
-                    value={formData.amountAlcohol}
-                    name="alcoholMoney"
-                    className="h-8 w-20 m-2"
-                    onChange={(e) => setFormData({ ...formData, amountAlcohol: e.target.value })}
-                  />
-                
-              </li>
-
-              <li className="w-full border-b flex justify-between border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                <div className="flex items-center pl-3">
-                  <input
-                    id="other-checkbox-list"
-                    type="checkbox"
-                    checked={formData.other}
-                    onChange={(e) => setFormData({ ...formData, other: e.target.checked })}
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                  />
-                  <label
-                    htmlFor="other-checkbox-list"
-                    className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                  >
-                    Otros
-                  </label>
-                </div>
-                
-                  <input
-                    type="number"
-                    value={formData.amountOther}
-                    name="otherMoney"
-                    className="h-8 w-20 m-2"
-                    onChange={(e) => setFormData({ ...formData, amountOther: e.target.value })}
-                  />
-                
-              </li>
-                            
-            
-            </ul>
-          </div>
-          <button onClick={addItem} className="h-16 mt-10">
+          <button onClick={addItem} className="h-16 sm:mt-9 m-auto sm:mx-0">
             +
           </button>
         </div>        
