@@ -323,7 +323,7 @@ function App() {
         </tbody>               
       </table>
 
-      <button className='my-8' onClick={() => setTablePay(handleCalcu(formData,items))}>Calcular</button>
+      <button className='my-5' onClick={() => setTablePay(handleCalcu(formData,items))}>Calcular</button>
 
       {
         tablePay.length > 0 && (
