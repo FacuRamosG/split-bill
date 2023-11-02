@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { handleCalcu } from './handles/handleCalcu';
+import getRandomColor from './const/randomColor';
 
 function App() {
   const [formData, setFormData] = useState({
@@ -30,12 +31,14 @@ function App() {
   const addItem = (e) => {
     e.preventDefault();
     if (formData.person === "") return alert("Ingrese un nombre");
+    const randomColor = getRandomColor();
 
     setItems([
       ...items,
       {
         id: Math.floor(Math.random() * 10000),
         person: formData.person,
+        color: randomColor,
         comida: {
           comidaTake: formData.comidaTake,
           amountComida: formData.amountComida,
@@ -143,11 +146,11 @@ function App() {
             </div>
 
             <div className="flex flex-col justify-start h-full">
-              <h3 className="mb-4 font-semibold text-gray-900 dark:text-white text-left">
+              <h3 className="mb-4 font-semibold text-white text-left">
                 Participación:
               </h3>
-              <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg  dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                <li className="w-full border-b flex justify-between border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+              <ul className="items-center w-full text-sm font-medium  border rounded-lg  bg-gray-700 border-gray-600 text-white">
+                <li className="w-full border-b flex justify-between sm:border-b-0 sm:border-r border-gray-600">
                   <div className="flex items-center justify-between pl-3">
                     <input
                       id="comida-checkbox-list"
@@ -160,11 +163,11 @@ function App() {
                           comidaTake: !formData.comidaTake,
                         })
                       }
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      className="w-4 h-4 text-blue-600 rounded focus:ring-blue-600 ring-offset-gray-700 focus:ring-offset-gray-700 focus:ring-2 bg-gray-600 border-gray-500"
                     />
                     <label
                       htmlFor="comida-checkbox-list"
-                      className="w-full py-3 ml-2 text-sm text-left font-medium text-gray-900 dark:text-gray-300"
+                      className="w-full py-3 ml-2 text-sm text-left font-medium text-gray-300"
                     >
                       Comida
                     </label>
@@ -175,7 +178,7 @@ function App() {
                       value={formData.amountComida}
                       name="comidaMoney"
                       id=""
-                      className="h-8 w-20 m-2"
+                      className="h-8 w-20 m-2 p-2"
                       onChange={(e) =>
                         setFormData({ ...formData, amountComida: e.target.value })
                       }
@@ -183,7 +186,7 @@ function App() {
                   
                 </li>
 
-                <li className="w-full border-b flex justify-between border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                <li className="w-full border-b flex justify-between sm:border-b-0 sm:border-r border-gray-600">
                   <div className="flex items-center justify-between pl-3">
                     <input
                       id="bebida-checkbox-list"
@@ -196,11 +199,11 @@ function App() {
                           bebidaTake: !formData.bebidaTake,
                         })
                       }
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      className="w-4 h-4 text-blue-600 rounded focus:ring-blue-600 ring-offset-gray-700 focus:ring-offset-gray-700 focus:ring-2 bg-gray-600 border-gray-500"
                     />
                     <label
                       htmlFor="bebida-checkbox-list"
-                      className="w-full py-3 ml-2 text-sm font-medium text-left text-gray-900 dark:text-gray-300"
+                      className="w-full py-3 ml-2 text-sm font-medium text-left text-gray-300"
                     >
                       Bebida
                     </label>
@@ -211,7 +214,7 @@ function App() {
                       value={formData.amountBebida}
                       name="comidaMoney"
                       id=""
-                      className="h-8 w-20 m-2"
+                      className="h-8 w-20 m-2 p-2"
                       onChange={(e) =>
                         setFormData({ ...formData, amountBebida: e.target.value })
                       }
@@ -219,18 +222,18 @@ function App() {
                   
                 </li>
 
-                <li className="w-full border-b flex justify-between border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                <li className="w-full border-b flex justify-between sm:border-b-0 sm:border-r border-gray-600">
                   <div className="flex items-center pl-3">
                     <input
                       id="alcohol-checkbox-list"
                       type="checkbox"
                       checked={formData.alcohol}
                       onChange={(e) => setFormData({ ...formData, alcohol: e.target.checked })}
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      className="w-4 h-4 text-blue-600 rounded focus:ring-blue-600 ring-offset-gray-700 focus:ring-offset-gray-700 focus:ring-2 bg-gray-600 border-gray-500"
                     />
                     <label
                       htmlFor="alcohol-checkbox-list"
-                      className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      className="w-full py-3 ml-2 text-sm font-medium text-gray-300"
                     >
                       Alcohol
                     </label>
@@ -240,24 +243,24 @@ function App() {
                       type="number"
                       value={formData.amountAlcohol}
                       name="alcoholMoney"
-                      className="h-8 w-20 m-2"
+                      className="h-8 w-20 m-2 p-2"
                       onChange={(e) => setFormData({ ...formData, amountAlcohol: e.target.value })}
                     />
                   
                 </li>
 
-                <li className="w-full border-b flex justify-between border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                <li className="w-full border-b flex justify-between sm:border-b-0 sm:border-r border-gray-600">
                   <div className="flex items-center pl-3">
                     <input
                       id="other-checkbox-list"
                       type="checkbox"
                       checked={formData.other}
                       onChange={(e) => setFormData({ ...formData, other: e.target.checked })}
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      className="w-4 h-4 text-blue-600 rounded focus:ring-blue-600 ring-offset-gray-700 focus:ring-offset-gray-700 focus:ring-2 bg-gray-600 border-gray-500"
                     />
                     <label
                       htmlFor="other-checkbox-list"
-                      className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      className="w-full py-3 ml-2 text-sm font-medium text-gray-300"
                     >
                       Otros
                     </label>
@@ -267,7 +270,7 @@ function App() {
                       type="number"
                       value={formData.amountOther}
                       name="otherMoney"
-                      className="h-8 w-20 m-2"
+                      className="h-8 w-20 m-2 p-2"
                       onChange={(e) => setFormData({ ...formData, amountOther: e.target.value })}
                     />
                   
@@ -299,22 +302,22 @@ function App() {
         <tbody>
           {items.map((item) => (
             <tr key={item.id}>
-              <td className='capitalize'>{item.person}</td>
+              <td className='capitalize' style={{color:item.color}}>{item.person}</td>
 
-                <td className="bg-red-900 text-center p-2">{item.comida.comidaTake ? (item.comida?.amountComida ? `$${item.comida.amountComida}` : '$0'): (item.comida?.amountComida > 0 ? `$${item.comida?.amountComida} pero no consume` : 'No consume')}</td>
-                <td className="bg-blue-900 text-center p-2">{item.bebida.bebidaTake ? (item.bebida?.amountBebida ? `$${item.bebida.amountBebida}` : '$0') : (item.bebida.amountBebida > 0 ? `$${item.bebida.amountBebida} pero no consume` : 'No consume')}</td>
-                <td className="bg-green-900 text-center p-2">{item.alcohol.alcohol ? (item.alcohol?.amountAlcohol ? `$${item.alcohol.amountAlcohol}` : '$0') : (item.alcohol.amountAlcohol > 0 ? `$${item.alcohol.amountAlcohol} pero no consume` : 'No consume')}</td>
-                <td className="bg-yellow-900 text-center p-2">{item.other.other ? (item.other?.amountOther ? `$${item.other.amountOther}` : '$0') : (item.other.amountOther > 0 ? `$${item.other.amountOther} pero no consume` : 'No consume')}</td>
+                <td className="bg-red-500 text-center p-2">{item.comida.comidaTake ? (item.comida?.amountComida ? `$${item.comida.amountComida}` : '$0'): (item.comida?.amountComida > 0 ? `$${item.comida?.amountComida} pero no consume` : 'No consume')}</td>
+                <td className="bg-blue-500 text-center p-2">{item.bebida.bebidaTake ? (item.bebida?.amountBebida ? `$${item.bebida.amountBebida}` : '$0') : (item.bebida.amountBebida > 0 ? `$${item.bebida.amountBebida} pero no consume` : 'No consume')}</td>
+                <td className="bg-green-500 text-center p-2">{item.alcohol.alcohol ? (item.alcohol?.amountAlcohol ? `$${item.alcohol.amountAlcohol}` : '$0') : (item.alcohol.amountAlcohol > 0 ? `$${item.alcohol.amountAlcohol} pero no consume` : 'No consume')}</td>
+                <td className="bg-yellow-500 text-center p-2">{item.other.other ? (item.other?.amountOther ? `$${item.other.amountOther}` : '$0') : (item.other.amountOther > 0 ? `$${item.other.amountOther} pero no consume` : 'No consume')}</td>
                 <td><button className='hover:bg-red-600' onClick={() => {handleDelete(item.id)}}>X</button></td>
             
             </tr>
            ))}
            <tr>
             <td>Total</td>
-            <td className='text-center'>{formData.totalComida ? formData.totalComida :0}</td>
-            <td className='text-center'>{formData.totalBebida ? formData.totalBebida :0}</td>
-            <td className='text-center'>{formData.totalAlcohol ? formData.totalAlcohol :0}</td>
-            <td className='text-center'>{formData.totalOther ? formData.totalOther :0}</td>
+            <td className='text-center'>${formData.totalComida ? formData.totalComida :0}</td>
+            <td className='text-center'>${formData.totalBebida ? formData.totalBebida :0}</td>
+            <td className='text-center'>${formData.totalAlcohol ? formData.totalAlcohol :0}</td>
+            <td className='text-center'>${formData.totalOther ? formData.totalOther :0}</td>
            </tr>
 
         </tbody>               
@@ -325,9 +328,9 @@ function App() {
       {
         tablePay.length > 0 && (
           <>
-          {tablePay.map((item) => (
-            <div key={item.id}>
-              <p className=''><span className='capitalize'>{item.deudor}</span> le debe a {item.acreedor} ${parseInt(item.cantidad)}</p>
+          {tablePay.map((tansition) => (
+            <div key={tansition.id}>
+              <p className='text-lg'><span className='capitalize' style={{color:tansition.deudor.color}}>{tansition.deudor.nombre}</span> le debe a <span className='capitalize' style={{color:tansition.acreedor.color}}>{tansition.acreedor.nombre}</span> ${parseInt(tansition.cantidad)}</p>
             </div>
           ))}
           <div>

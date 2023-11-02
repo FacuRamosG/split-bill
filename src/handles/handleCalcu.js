@@ -34,6 +34,7 @@ export const handleCalcu = (formData, items) => {
       return {
         id: item.id,
         person: item.person,
+        color: item.color,
         comida: {
           totalAbonadoComida,
           diferenciaComida,
@@ -53,20 +54,23 @@ export const handleCalcu = (formData, items) => {
       };
     });
 
-    console.log(newPayPerson);
 
     const calcularDivisionesMinimizandoTransacciones = (amigos) => {
-      const deudas = {};
+      let deudas = {};
     
       amigos.forEach((amigo) => {
-        deudas[amigo.person] = 0;
+        deudas[amigo.id] = {
+          deuda: 0,
+          nombre: amigo.person,
+          color: amigo.color,
+        }; 
       });
     
       amigos.forEach((amigo) => {
         for (const variante in amigo) {
           if (variante !== 'person' && variante !== 'id') {
             const deudaAmigo = amigo[variante]?.diferenciaComida || 0 + amigo[variante]?.diferenciaBebida || 0 + amigo[variante]?.diferenciaOther || 0 + amigo[variante]?.diferenciaAlcohol || 0;
-            deudas[amigo.person] += deudaAmigo;
+            deudas[amigo.id].deuda += deudaAmigo;
           }
         }
       });
@@ -76,14 +80,14 @@ export const handleCalcu = (formData, items) => {
       for (const amigoA in deudas) {
         for (const amigoB in deudas) {
           if (amigoA !== amigoB) {
-            const deudaAmigoA = deudas[amigoA];
-            const deudaAmigoB = deudas[amigoB];
+            const deudaAmigoA = deudas[amigoA].deuda;
+            const deudaAmigoB = deudas[amigoB].deuda;
     
             if (deudaAmigoA > 0 && deudaAmigoB < 0) {
               const cantidadPagar = Math.min(deudaAmigoA, -deudaAmigoB);
-              deudas[amigoA] -= cantidadPagar;
-              deudas[amigoB] += cantidadPagar;
-              pagos.push({ deudor: amigoA, acreedor: amigoB, cantidad: cantidadPagar });
+              deudas[amigoA].deuda -= cantidadPagar;
+              deudas[amigoB].deuda += cantidadPagar;
+              pagos.push({ deudor: {nombre: deudas[amigoA].nombre, color:deudas[amigoA].color}, acreedor: {nombre:deudas[amigoB].nombre, color:deudas[amigoB].color}, cantidad: cantidadPagar,id:`${amigoA}-${amigoB}` });
             }
           }
         }
