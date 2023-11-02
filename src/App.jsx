@@ -139,7 +139,7 @@ function App() {
                   setFormData({ ...formData, person: e.target.value })
                 }
                 value={formData.person}
-                className="h-10 w-50 p-4 bg-[#3B3B3B] border border-gray-600 rounded-lg text-white"
+                className="h-10 w-50 p-4  bg-[#3B3B3B] border border-gray-600 rounded-lg text-white "
                 placeholder="Facundo, Juan, ..."
                 required
               />
@@ -178,7 +178,7 @@ function App() {
                       value={formData.amountComida}
                       name="comidaMoney"
                       id=""
-                      className="h-8 w-20 m-2 p-2"
+                      className="h-8 w-20 m-2 p-2  bg-[#3B3B3B] border border-gray-600 rounded-lg text-white"
                       onChange={(e) =>
                         setFormData({ ...formData, amountComida: e.target.value })
                       }
@@ -214,7 +214,7 @@ function App() {
                       value={formData.amountBebida}
                       name="comidaMoney"
                       id=""
-                      className="h-8 w-20 m-2 p-2"
+                      className="h-8 w-20 m-2 p-2  bg-[#3B3B3B] border border-gray-600 rounded-lg text-white"
                       onChange={(e) =>
                         setFormData({ ...formData, amountBebida: e.target.value })
                       }
@@ -243,7 +243,7 @@ function App() {
                       type="number"
                       value={formData.amountAlcohol}
                       name="alcoholMoney"
-                      className="h-8 w-20 m-2 p-2"
+                      className="h-8 w-20 m-2 p-2  bg-[#3B3B3B] border border-gray-600 rounded-lg text-white"
                       onChange={(e) => setFormData({ ...formData, amountAlcohol: e.target.value })}
                     />
                   
@@ -270,7 +270,7 @@ function App() {
                       type="number"
                       value={formData.amountOther}
                       name="otherMoney"
-                      className="h-8 w-20 m-2 p-2"
+                      className="h-8 w-20 m-2 p-2  bg-[#3B3B3B] border border-gray-600 rounded-lg text-white"
                       onChange={(e) => setFormData({ ...formData, amountOther: e.target.value })}
                     />
                   
