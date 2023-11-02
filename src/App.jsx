@@ -139,7 +139,7 @@ function App() {
                   setFormData({ ...formData, person: e.target.value })
                 }
                 value={formData.person}
-                className="h-10 w-50 p-4"
+                className="h-10 w-50 p-4 bg-[#3B3B3B] border border-gray-600 rounded-lg text-white"
                 placeholder="Facundo, Juan, ..."
                 required
               />
