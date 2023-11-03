@@ -1,8 +1,9 @@
-# React + Vite
+# Calculadora de Gastos en Grupo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta es una aplicación de React para calcular gastos compartidos entre un grupo de personas. Permite a los usuarios ingresar sus nombres y registrar sus contribuciones en diferentes categorías de gastos, como comida, bebida, alcohol y otros. Luego, la aplicación calcula cuánto debe cada persona en función de sus contribuciones.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Agregar personas y registrar sus contribuciones en varias categorías.
+- Mostrar una tabla con un resumen de las contribuciones de cada persona.
+- Calcular automáticamente las deudas y créditos entre las personas del grupo.
